@@ -35,7 +35,8 @@ createApp({
         }
       ],
 
-      imageCounter: 0
+      imageCounter: 0,
+      myAutomatedCarousel: undefined
 
     }
   },
@@ -50,6 +51,15 @@ createApp({
         if(this.imageCounter < 0) this.imageCounter = this.imagesCollection.length - 1;
       }
       //addClassActive();
+    },
+    automatedFwd() {
+      this.myAutomatedCarousel = setInterval(() => {
+        this.fwdBack(true);
+      }, 2000)
+    },
+    stopInterval() {
+      console.log("enter");
+      clearInterval(this.myAutomatedCarousel)
     }
   },
   mounted() {
@@ -57,6 +67,7 @@ createApp({
   },
   created() {
     console.log("Created 'vue-carousel'");
+    this.automatedFwd();
   }
 }).mount("#app");
 

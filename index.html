@@ -17,11 +17,16 @@
 
     <div class="main-wrapper">
 
-      <div class="card">
+      <div
+        class="card"
+        @mouseenter="stopInterval()"
+        @mouseleave="automatedFwd()">
   
         <div class="photo-displayed">
           <div class="printed-image active">
-            <img :src="imagesCollection[imageCounter].imageLink" alt="">
+            <img
+            :src="imagesCollection[imageCounter].imageLink"
+            alt="">
             <div class="text-box">
               <h3 class="location">{{imagesCollection[imageCounter].countryName}}</h3>
               <p class="description">{{imagesCollection[imageCounter].description}}</p>
@@ -52,13 +57,13 @@
   
       </div>
   
-      <div class="btn-container">
+      <!-- <div class="btn-container">
   
         <button id="start" class="btn btn-start">Start</button>
         <button id="stop" class="btn btn-stop hidden">Stop</button>
         <button id="reverse" class="btn btn-reverse">Reverse</button>
         
-      </div>
+      </div> -->
   
     </div>
 
