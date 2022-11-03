@@ -1,3 +1,4 @@
+/* general */
 *,
 *::after,
 *::before{
@@ -8,4 +9,162 @@
 
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: beige;
+  background-color: beige;
 }
+
+/* debug */
+.debug{
+  background-color: rgba(255, 0, 0, 0.4);
+  border: 1px solid black;
+}
+
+/* utilities */
+img{
+  max-width: 100%;
+}
+
+p{
+  text-shadow: 2px 2px 4px black;
+}
+
+h2{
+  text-shadow: 2px 2px 4px black;
+}
+
+/* button */
+.btn{
+  background-color: beige;
+  border: 2px solid royalblue;
+  color: royalblue;
+  font-weight: bold; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.btn:hover{
+  background-color: royalblue;
+  color: beige;
+}
+
+.btn.btn-stop{
+  border: 2px solid tomato;
+  color: tomato;
+}
+
+.btn.btn-stop:hover{
+  background-color: tomato;
+  color: beige;
+}
+
+.btn.hidden{
+  display: none;
+}
+
+/* arrow */
+.arrow{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.562);
+  text-align: center;
+  line-height: 30px;
+  position: absolute;
+  transition: background-color 0.5s;
+}
+
+.arrow i{
+  text-shadow: 2px 2px 4px black;
+  transition: text-shadow 0.5s;
+}
+
+.arrow:hover i{
+  text-shadow: 0 0 0 black;
+}
+
+.arrow:hover{
+  background-color: rgba(128, 128, 128, 1);
+}
+
+.arrow.arrow-back{
+  left: 15px;
+  bottom: 45px;
+}
+
+.arrow.arrow-fwd{
+  right: 15px;
+  bottom: 45px;
+}
+
+/* main */
+.main-wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card{
+  width: 750px;
+  height: 600px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.photo-displayed{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-wrapper .photo-displayed img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  scale: 1.6;
+}
+
+.main-wrapper .photo-displayed .printed-image{
+  display: none;
+}
+
+.main-wrapper .photo-displayed .printed-image.active{
+  display: inline-block;
+}
+
+.printed-image{
+  position: relative;
+}
+
+.text-box{
+  width: 60%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-align: right;
+  padding: 20px 20px 0 0;
+}
+
+.miniature-preview{
+  height: 20%;
+  width: 100%;
+  display: flex;
+}
+
+.main-wrapper .miniature-preview img{
+  width: calc(100% / 5);
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  cursor: pointer;
+}
+
+.main-wrapper .miniature-preview img.active{
+  filter: brightness(100%);
+  border: 2px solid gainsboro;
+}
+

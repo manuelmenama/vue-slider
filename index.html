@@ -5,12 +5,62 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous'/>
+
+
   <link rel="stylesheet" href="css/style.css">
   <title>&Egrave; l'ora del Vue Carousel!</title>
 </head>
 <body>
 
   <div id="app">
+
+    <div class="main-wrapper">
+
+      <div class="card">
+  
+        <div class="photo-displayed">
+          <div class="printed-image active">
+            <img :src="imagesCollection[imageCounter].imageLink" alt="">
+            <div class="text-box">
+              <h3 class="location">{{imagesCollection[imageCounter].countryName}}</h3>
+              <p class="description">{{imagesCollection[imageCounter].description}}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="miniature-preview">
+          <img
+           v-for="(miniature, index) in imagesCollection"
+           @click="imageCounter = index"
+           :class="{'active':index===imageCounter}"
+           :src="miniature.imageLink"
+           alt="">
+          
+        </div>
+  
+        <div
+        class="arrow arrow-back"
+        @click="fwdBack(false)">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <div
+        class="arrow arrow-fwd"
+        @click="fwdBack(true)">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+  
+      </div>
+  
+      <div class="btn-container">
+  
+        <button id="start" class="btn btn-start">Start</button>
+        <button id="stop" class="btn btn-stop hidden">Stop</button>
+        <button id="reverse" class="btn btn-reverse">Reverse</button>
+        
+      </div>
+  
+    </div>
 
   </div>
 

@@ -14,7 +14,7 @@ createApp({
           imageLink: "http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"
         },
         {
-          countryName: "Per&ugrave;",
+          countryName: "Perù",
           description: "Las lo para ilesa golondrina de con. De de mi para deja desnudo. Y que la pasan y dando. Mi.",
           imageLink: "https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg"
         },
@@ -33,12 +33,24 @@ createApp({
           description: "Baja un aire dios que bajaba estremecidos veces, huido de tierra bala para escaleras, árboles vilo ninos de larga loca..",
           imageLink: "https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop"
         }
-      ]
-      
+      ],
+
+      imageCounter: 0
+
     }
   },
   methods: {
-
+    fwdBack(isFwd) {
+      //removeClassActive();
+      if(isFwd){
+        this.imageCounter++;
+        if(this.imageCounter === this.imagesCollection.length) this.imageCounter = 0;
+      }else{
+        this.imageCounter--;
+        if(this.imageCounter < 0) this.imageCounter = this.imagesCollection.length - 1;
+      }
+      //addClassActive();
+    }
   },
   mounted() {
     console.log("Mounted 'vue-carousel'");
